@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import strings.BasicStringOps;
 
-public class BasicStringOpstest {
+public class BasicStringOpsTest {
 
     private BasicStringOps basicStringOps;
     @Before
@@ -29,5 +29,18 @@ public class BasicStringOpstest {
     public void testMissingCharachters(){
         System.out.println(basicStringOps.missingLetters("The quick brown fox jumps over the lazy dog"));
         System.out.println(basicStringOps.missingLetters("The quick brown fox jups over the lazy dog"));
+    }
+
+    @Test
+    public void testPangramaticLipogram(){
+        Assert.assertFalse(basicStringOps.chackPangrammaticLipogran("The quick brown fox jumps over the lazy dog"));
+        Assert.assertTrue(basicStringOps.chackPangrammaticLipogran("The quick brown fox jups over the lazy dog"));
+        Assert.assertFalse(basicStringOps.chackPangrammaticLipogran("The quick brwn fx jups ver the lazy dg"));
+    }
+
+    @Test
+    public void testRemovePunctuation(){
+        Assert.assertEquals(basicStringOps.removePunctuation("  Ankit  % "),"  Ankit   ");
+        Assert.assertEquals(basicStringOps.removePunctuation("Ankit,#"),"Ankit");
     }
 }
